@@ -13,6 +13,7 @@ class ArrayStack{
         T top();
         void pop();
         void push(const T& val);
+        bool empty() {return this->curr_size == 0;}
     private:
         size_t curr_size {0};
         size_t capacity {0};
@@ -45,7 +46,7 @@ T ArrayStack<T>::top(){
 template <typename T>
 void ArrayStack<T>::pop(){
     if (this->curr_size == 0)
-        throw std::runtime_error("Cannot get a value from an empty stack");
+        throw std::runtime_error("Cannot pop a value from an empty stack");
     this->curr_size--;
 }
 
@@ -55,8 +56,10 @@ void ArrayStack<T>::push(const T& val){
     // check if we've reached the maximum size of the array and need to reallocate
     if (this->curr_size == this->capacity){
         this->capacity *= 2;
-        T new_arr = new T[this->capacity];
-        std::memcpy(new_arr, this->arr, sizeof(T) * this->curr_size);       
+        T* new_arr = new T[this->capacity];
+        std::memcpy(new_arr, this->arr, sizeof(T) * (this->curr_size - 1)); 
+        delete this->arr;      
+        this->arr = new_arr;
     }
     // push the value
     this->arr[this->curr_size] = val;
