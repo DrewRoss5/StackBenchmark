@@ -3,7 +3,7 @@ A simple benchmark comparing the perfomance of an array-based stack and linked-l
 This pushes a set number of elements to two stacks, one using an array-based implementation, and the other using a list-based implementation
 
 # Findings
-When output is enabled, there is no clear performance benefit to either implementation, however, when output is disabled, the array-based implementation performs considerably better than the list-based array, averaging between 50% and 80% better performance.
+When output is enabled, there is no clear performance benefit to either implementation, however, when output is disabled, the array-based implementation performs considerably better than the list-based array, averaging between 50% and 80% better performance, this is likely due to the array-based implementation requiring fewer memory allocations, and taking advantage of cache-locality.
 
 # Usage
 To run the benchmark on your local machine: 
