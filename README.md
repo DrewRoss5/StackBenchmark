@@ -18,4 +18,4 @@ To run the benchmark on your local machine:
 - Run the `stackbench` executable, passing the number of elements to push and pop to each stack.
 - View the reported results
 ## Note:
-The benchmark prints out the value of each element in the array to verify correct functionality, however this interferes with accurate benchmarking, so to get accurate results, comment out the printf statements when before building the executable.
+By default, this benchmark does not display the values popped off of each stack to minimize overhead interfereing with results, however, to verify the stacks work as intended, one can simply uncomment the printf lines in main.cpp before building in order to verify proper functionality of the stacks.
